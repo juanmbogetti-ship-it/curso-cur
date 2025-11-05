@@ -1,13 +1,155 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Juan Curso de React</title>
+    <title>Design System – Minimal Monochrome + Red Accent</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hubot+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/src/main.tsx"></script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Tailwind (opcional si aún no se compila el build) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      :root {
+        --bg: #ffffff;
+        --bg-alt: #f5f5f5;
+        --text: #121212;
+        --text-muted: #6f6f6f;
+        --accent: #b4002f;
+        --accent-dark: #8c0024;
+        --border: #eaeaea;
+      }
+
+      body {
+        font-family: "Hubot Sans", sans-serif;
+        color: var(--text);
+        background-color: var(--bg);
+        margin: 0;
+        padding: 2rem;
+        line-height: 1.6;
+      }
+
+      .card {
+        background: var(--bg-alt);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: white;
+        border-radius: 6px;
+        padding: 0.6rem 1.2rem;
+        font-weight: 600;
+        transition: background 0.2s;
+      }
+      .btn-primary:hover {
+        background: var(--accent-dark);
+      }
+
+      .btn-secondary {
+        border: 2px solid var(--accent);
+        color: var(--accent);
+        border-radius: 6px;
+        padding: 0.6rem 1.2rem;
+        font-weight: 600;
+        background: transparent;
+        transition: all 0.2s;
+      }
+      .btn-secondary:hover {
+        background: var(--accent);
+        color: white;
+      }
+
+      .icon {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+      }
+
+      .divider {
+        border-bottom: 1px solid var(--border);
+        margin: 2rem 0;
+      }
+    </style>
   </head>
+
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div id="root">
+      <h1 class="text-4xl font-bold mb-8">
+        🎨 Design System — Minimal Monochrome + Red Accent
+      </h1>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Paleta de colores</h2>
+        <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
+          <div class="card" style="background: var(--bg)">#FFFFFF<br />Fondo base</div>
+          <div class="card" style="background: var(--bg-alt)">#F5F5F5<br />Fondo alterno</div>
+          <div class="card text-white" style="background: var(--text)">#121212<br />Texto</div>
+          <div class="card text-white" style="background: var(--text-muted)">#6F6F6F<br />Texto secundario</div>
+          <div class="card text-white" style="background: var(--accent)">#B4002F<br />Acento</div>
+          <div class="card text-white" style="background: var(--accent-dark)">#8C0024<br />Acento oscuro</div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Botones</h2>
+        <div class="flex gap-4 flex-wrap">
+          <button class="btn-primary">Primario</button>
+          <button class="btn-secondary">Secundario</button>
+          <button
+            class="px-4 py-2 text-sm text-[var(--text-muted)] flex items-center gap-2"
+          >
+            Ver más
+            <svg
+              class="icon"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13.293 5.293a1 1 0 011.414 1.414L11.414 10H20a1 1 0 110 2h-8.586l3.293 3.293a1 1 0 11-1.414 1.414l-5-5a1 1 0 010-1.414l5-5z"
+              />
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section>
+        <h2 class="text-2xl font-semibold mb-4">Íconos</h2>
+        <div class="flex gap-8 flex-wrap items-center text-[var(--accent)]">
+          <div>
+            <svg class="icon" viewBox="0 0 24 24">
+              <path d="M3 6h18a1 1 0 010 2H3a1 1 0 010-2zm0 5h18a1 1 0 010 2H3a1 1 0 010-2zm0 5h18a1 1 0 010 2H3a1 1 0 010-2z" />
+            </svg>
+            <p>Menú</p>
+          </div>
+          <div>
+            <svg class="icon" viewBox="0 0 24 24">
+              <path
+                d="M18.364 5.636a1 1 0 010 1.414L13.414 12l4.95 4.95a1 1 0 01-1.414 1.414L12 13.414l-4.95 4.95a1 1 0 01-1.414-1.414L10.586 12 5.636 7.05A1 1 0 117.05 5.636L12 10.586l4.95-4.95z"
+              />
+            </svg>
+            <p>Cerrar</p>
+          </div>
+          <div>
+            <svg class="icon" viewBox="0 0 24 24">
+              <path
+                d="M13.293 5.293a1 1 0 011.414 1.414L11.414 10H20a1 1 0 110 2h-8.586l3.293 3.293a1 1 0 11-1.414 1.414l-5-5a1 1 0 010-1.414l5-5z"
+              />
+            </svg>
+            <p>Flecha</p>
+          </div>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
